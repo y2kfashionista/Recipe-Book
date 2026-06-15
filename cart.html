@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skyline Store - Shop Deals</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f4f6f8;
+  --card:#fff;
+  --text:#222;
+  --muted:#777;
+  --accent:#d4af37;
+  --border:#e6e6e6;
+  --green:#1db954;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins,sans-serif;
+}
+
+body{
+  background:var(--bg);
+}
+
+/* HEADER */
+header{
+  background:#111;
+  color:#fff;
+  padding:15px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cart-btn{
+  background:var(--accent);
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  color:#000;
+}
+
+/* PRODUCTS GRID */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  padding:20px 8%;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.03);
+}
+
+.card img{
+  width:100%;
+  height:150px;
+  object-fit:contain;
+}
+
+.card h3{
+  font-size:14px;
+  margin:8px 0;
+}
+
+.price{
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.add-cart{
+  background:#111;
+  color:#fff;
+  border:none;
+  padding:8px;
+  width:100%;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* CART */
+.cart{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:360px;
+  height:100vh;
+  background:#fff;
+  box-shadow:-5px 0 25px rgba(0,0,0,0.2);
+  transition:0.3s;
+  padding:15px;
+  overflow-y:auto;
+  z-index:999;
+}
+
+.cart.open{
+  right:0;
+}
+
+.close{
+  float:right;
+  cursor:pointer;
+  font-size:22px;
+}
+
+.cart-item{
+  display:flex;
+  gap:10px;
+  border-bottom:1px solid #eee;
+  padding:10px 0;
+}
+
+.cart-item img{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+
+.qty{
+  display:flex;
+  gap:5px;
+  align-items:center;
+  margin-top:5px;
+}
+
+.qty button{
+  width:22px;
+  height:22px;
+  border:none;
+  background:var(--accent);
+  font-weight:bold;
+}
+
+.remove{
+  background:red;
+  color:#fff;
+  border:none;
+  padding:4px 6px;
+  font-size:11px;
+  margin-top:5px;
+  cursor:pointer;
+}
+
+.total{
+  font-size:18px;
+  font-weight:700;
+  margin-top:10px;
+}
+
+.checkout{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border:none;
+  background:var(--green);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  border-radius:6px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Skyline Store</h2>
+  <div class="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="count">0</span>)</div>
+</header>
+
+<!-- PRODUCTS -->
+<section class="products">
+
+<!-- ALL PRODUCTS (YOUR LIST CONVERTED) -->
+<div class="cardGrid">
+    <div class="card"><img src="2.jpg"><h3>Nivea Body lotion</h3><div class="price">$12</div><button class="add-cart" onclick="addToCart('Running Sneakers',37,'2.jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="3.jpg"><h3>Nivea Men Body lotion</h3><div class="price">$9</div><button class="add-cart" onclick="addToCart('Fashion Sneakers',38,'3.jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="4.jpg"><h3>Nivea Women Body Lotion</h3><div class="price">$11/div><button class="add-cart" onclick="addToCart('Canvas Sneakers',67,'4.jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="download (5).jpg"><h3>Smart Watch Pro</h3><div class="price">$150</div><button class="add-cart" onclick="addToCart('Smart Watch Pro',150,'download (5).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="download (6).jpg"><h3>Wireless Earbuds</h3><div class="price">$85</div><button class="add-cart" onclick="addToCart('Wireless Earbuds',85,'download (6).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="download (7).jpg"><h3>Gaming Controller</h3><div class="price">$65</div><button class="add-cart" onclick="addToCart('Gaming Controller',65,'download (7).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="download (12).jpg"><h3>Latest iPhones</h3><div class="price">$1200</div><button class="add-cart" onclick="addToCart('Latest iPhones',1200,'download (12).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="download (13).jpg"><h3>Latest Laptops</h3><div class="price">$1000</div><button class="add-cart" onclick="addToCart('Latest Laptops',1000,'download (13).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (47).jpg"><h3>Ring Light</h3><div class="price">$15</div><button class="add-cart" onclick="addToCart('Ring Light',15,'1 (47).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (46).jpg"><h3>Selfie Light</h3><div class="price">$11</div><button class="add-cart" onclick="addToCart('Selfie Light',11,'1 (46).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (45).jpg"><h3>Round Earpods</h3><div class="price">$10</div><button class="add-cart" onclick="addToCart('Round Earpods',10,'1 (45).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (44).jpg"><h3>Mini Phone Light</h3><div class="price">$9</div><button class="add-cart" onclick="addToCart('Mini Phone Light',9,'1 (44).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (43).jpg"><h3>Camera Stand</h3><div class="price">$30</div><button class="add-cart" onclick="addToCart('Camera Stand',30,'1 (43).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (42).jpg"><h3>Camera Lens</h3><div class="price">$51</div><button class="add-cart" onclick="addToCart('Camera Lens',51,'1 (42).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (41).jpg"><h3>Samsung Galaxy A26</h3><div class="price">$300</div><button class="add-cart" onclick="addToCart('Samsung Galaxy A26',300,'1 (41).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (57).jpg"><h3>Mini Vlog Camera</h3><div class="price">$30</div><button class="add-cart" onclick="addToCart('Mini Vlog Camera',30,'1 (57).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (58).jpg"><h3>Smart Glasses</h3><div class="price">$150</div><button class="add-cart" onclick="addToCart('Smart Glasses',150,'1 (58).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (62).jpg"><h3>Smart CCTV Camera</h3><div class="price">$200</div><button class="add-cart" onclick="addToCart('Smart CCTV Camera',200,'1 (62).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (61).jpg"><h3>Bag Checker</h3><div class="price">$50</div><button class="add-cart" onclick="addToCart('Bag Checker',50,'1 (61).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (60).jpg"><h3>Smart Box TV</h3><div class="price">$35</div><button class="add-cart" onclick="addToCart('Smart Box TV',35,'1 (60).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (63).jpg"><h3>Gaming Mouse</h3><div class="price">$29</div><button class="add-cart" onclick="addToCart('Gaming Mouse',29,'1 (63).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (64).jpg"><h3>Fast Charging Cord</h3><div class="price">$11</div><button class="add-cart" onclick="addToCart('Fast Charging Cord',11,'1 (64).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (66).jpg"><h3>Gadget Storage Bag</h3><div class="price">$15</div><button class="add-cart" onclick="addToCart('Gadget Storage Bag',15,'1 (66).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (51).jpg"><h3>Mini Phone Holder Light</h3><div class="price">$32</div><button class="add-cart" onclick="addToCart('Mini Phone Holder Light',32,'1 (51).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (55).jpg"><h3>TikTok Ring Remote</h3><div class="price">$50</div><button class="add-cart" onclick="addToCart('TikTok Ring Remote',50,'1 (55).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="166409210_MzAwLTUzMy05MzRmZmUxMGY1.webp"><h3>Oraimo Power Bank</h3><div class="price">$40</div><button class="add-cart" onclick="addToCart('Oraimo Power Bank',40,'166409210_MzAwLTUzMy05MzRmZmUxMGY1.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="183196579_MzAwLTY1My1hZWRmZjc0Nzlm.webp"><h3>iPhone 16</h3><div class="price">$900</div><button class="add-cart" onclick="addToCart('iPhone 16',900,'183196579_MzAwLTY1My1hZWRmZjc0Nzlm.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="183290759_MzAwLTQwMC1mZTVjNjY4YmNk.webp"><h3>iPhone 17 Pro Max</h3><div class="price">$2500</div><button class="add-cart" onclick="addToCart('iPhone 17 Pro Max',2500,'183290759_MzAwLTQwMC1mZTVjNjY4YmNk.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="183291127_MzAwLTQwMC1kOWUxZTkyYTY4.webp"><h3>White iPhone 17 Pro Max</h3><div class="price">$2500</div><button class="add-cart" onclick="addToCart('White iPhone 17 Pro Max',2500,'183291127_MzAwLTQwMC1kOWUxZTkyYTY4.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="192805849_MzAwLTIyNS1kZGQzODNjNTUy.webp"><h3>Orange iPhone 17 Pro Max</h3><div class="price">$2500</div><button class="add-cart" onclick="addToCart('Orange iPhone 17 Pro Max',2500,'192805849_MzAwLTIyNS1kZGQzODNjNTUy.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="195324897_MzAwLTIyNS0yYTZiNTI4NzI3.webp"><h3>Wired Gaming Pad</h3><div class="price">$35</div><button class="add-cart" onclick="addToCart('Wired Gaming Pad',35,'195324897_MzAwLTIyNS0yYTZiNTI4NzI3.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (48).jpg"><h3>Phone Adapter</h3><div class="price">$17</div><button class="add-cart" onclick="addToCart('Phone Adapter',17,'1 (48).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (52).jpg"><h3>Car Fast Charger</h3><div class="price">$12</div><button class="add-cart" onclick="addToCart('Car Fast Charger',12,'1 (52).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="1 (54).jpg"><h3>Mini Ring Light</h3><div class="price">$15</div><button class="add-cart" onclick="addToCart('Mini Ring Light',15,'1 (54).jpg')">Add To Cart</button></div>
+
+<div class="card"><img src="Apple laptop stand.webp"><h3>Apple Laptop Stand</h3><div class="price">$50</div><button class="add-cart" onclick="addToCart('Apple Laptop Stand',50,'Apple laptop stand.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="Apple earpods.webp"><h3>Apple Earpods</h3><div class="price">$100</div><button class="add-cart" onclick="addToCart('Apple Earpods',100,'Apple earpods.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="Apple headset.webp"><h3>Apple Headset</h3><div class="price">$850</div><button class="add-cart" onclick="addToCart('Apple Headset',850,'Apple headset.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="Apple laptop.webp"><h3>Apple Laptop</h3><div class="price">$3000</div><button class="add-cart" onclick="addToCart('Apple Laptop',3000,'Apple laptop.webp')">Add To Cart</button></div>
+
+<div class="card"><img src="Apple pad.webp"><h3>Apple iPad</h3><div class="price">$1500</div><button class="add-cart" onclick="addToCart('Apple iPad',1500,'Apple pad.webp')">Add To Cart</button></div>
+
+</div>
+
+</div>
+
+<!-- You can continue same pattern for all remaining products (already fully compatible) -->
+
+</section>
+
+<!-- CART -->
+<div class="cart" id="cart">
+<span class="close" onclick="toggleCart()">×</span>
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<div class="total" id="total">Total: $0</div>
+
+<button class="checkout" onclick="checkout()">Checkout</button>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price, image){
+  let item = cart.find(i => i.name === name);
+  if(item){
+    item.qty++;
+  }else{
+    cart.push({name, price, image, qty:1});
+  }
+  updateCart();
+}
+
+function updateCart(){
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+  updateCount();
+}
+
+function renderCart(){
+  let box = document.getElementById("cartItems");
+  box.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item,i)=>{
+    total += item.price * item.qty;
+
+    box.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}">
+        <div>
+          <h4>${item.name}</h4>
+          <p>$${item.price}</p>
+
+          <div class="qty">
+            <button onclick="minus(${i})">-</button>
+            ${item.qty}
+            <button onclick="plus(${i})">+</button>
+          </div>
+
+          <button class="remove" onclick="removeItem(${i})">Remove</button>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById("total").innerText = "Total: $" + total;
+}
+
+function plus(i){
+  cart[i].qty++;
+  updateCart();
+}
+
+function minus(i){
+  if(cart[i].qty > 1){
+    cart[i].qty--;
+  }else{
+    cart.splice(i,1);
+  }
+  updateCart();
+}
+
+function removeItem(i){
+  cart.splice(i,1);
+  updateCart();
+}
+
+function updateCount(){
+  let count = cart.reduce((sum,i)=>sum+i.qty,0);
+  document.getElementById("count").innerText = count;
+}
+
+function toggleCart(){
+  document.getElementById("cart").classList.toggle("open");
+}
+
+function checkout(){
+  if(cart.length === 0){
+    alert("Cart is empty!");
+    return;
+  }
+
+  alert("Order placed successfully!");
+  cart = [];
+  updateCart();
+  toggleCart();
+}
+
+updateCart();
+</script>
+<style>
+  /* ================= TOP BAR ================= */
+
+.top-bar{
+    background: #111;
+    color: gold;
+    padding: 10px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-brand{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.logo-brand span{
+    color: white;
+}
+
+/* ================= NAV ================= */
+
+header{
+    background: #dbdbdb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+}
+
+nav{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a{
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+nav a:hover{
+    color: gold;
+}
+
+.cardGrid{
+  display: grid;
+  gap: 20px;
+}
+</style>
+</body>
+</html>

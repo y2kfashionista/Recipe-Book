@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About - Skyline Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="top-bar">
+<div class="logo-container">
+<div class="logo-image">
+<img src="images/Rakel 1.png" alt="Skyline Store Logo" class="brand-logo">
+</div>
+<div class="logo-brand">
+Skyline <span>Store</span>
+</div>
+</div>
+</div>
+
+<div class="menu-toggle">☰</div>
+
+<header>
+
+<nav>
+<a href="home.html">Home</a>
+<a href="Gadgets.html">Gadgets</a>
+<a href="Home appliances.html">Home Appliances</a>
+<a href="Body care.html">Body Care</a>
+<a href="Sneakers.html">Sneakers</a>
+<a href="Book store.html">Book Store</a>
+<a href="Cloths and trousers.html">Cloths & Trousers</a>
+<a href="Electric fan.html">Electric Fans</a>
+<a href="About.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="icons">
+
+<div class="search-box">
+<input type="text" placeholder="Search...">
+<i class="fa fa-search"></i>
+</div>
+
+<i class="fa fa-heart"></i>
+<i class="fa fa-cart-shopping"></i>
+
+</div>
+
+</header>
+
+<h2 class="section-title">
+About <span>Skyline Store</span>
+</h2>
+
+<!-- ================= MAIN ================= -->
+<section class="about-container">
+
+  <!-- TEXT -->
+  <div class="about-text">
+
+    <h2>Who We Are</h2>
+    <p>
+      Skyline Store is a modern e-commerce platform built to provide customers with quality products at affordable prices.
+      We connect buyers with the best gadgets, fashion, sneakers, home appliances, and more.
+    </p>
+
+    <h2>Our Vision</h2>
+    <p>
+      To become one of the leading online shopping platforms in Africa, offering fast delivery, trusted products, and excellent customer experience.
+    </p>
+
+    <h2>Why Choose Us</h2>
+    <ul>
+      <li>Affordable Prices</li>
+      <li>Quality Products</li>
+      <li>Fast Delivery</li>
+      <li>24/7 Customer Support</li>
+    </ul>
+
+  </div>
+
+  <!-- IMAGES -->
+  <div class="about-images">
+
+    <div class="img-box"><img src="images/Apple laptop.webp"></div>
+    <div class="img-box"><img src="images/Apple pad.webp"></div>
+    <div class="img-box"><img src="images/Apple 15 promax.webp"></div>
+    <div class="img-box"><img src="images/Gaming Controller.webp"></div>
+
+  </div>
+
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="about-stats">
+
+  <div class="stat-box">
+    <h3 class="counter" data-target="1000">200</h3>
+    <p>Happy Customers</p>
+  </div>
+
+  <div class="stat-box">
+    <h3 class="counter" data-target="500">500</h3>
+    <p>Products</p>
+  </div>
+
+  <div class="stat-box">
+    <h3 class="counter" data-target="24">24</h3>
+    <p>Support Hours</p>
+  </div>
+
+  <div class="stat-box">
+    <h3 class="counter" data-target="100">24/7</h3>
+    <p>Fast Delivery</p>
+  </div>
+
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="team-section">
+
+  <h2>Our Team</h2>
+
+  <div class="team-container">
+
+    <div class="team-card">
+      <img src="images/Rakel 1.png">
+      <h3>CEO</h3>
+      <p>Skyline Founder</p>
+    </div>
+
+    <div class="team-card">
+      <img src="images/rr.webp">
+      <h3>Manager</h3>
+      <p>Operations Lead</p>
+    </div>
+
+    <div class="team-card">
+      <img src="images/rrv.webp">
+      <h3>Support</h3>
+      <p>Customer Care</p>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+<p>
+Skyline Store brings premium products and great deals all in one place.
+</p>
+
+<p>
+© 2026 Skyline Store. Crafted for style and performance.
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+<style>
+  /* ================= GLOBAL ================= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #f7f7f7;
+    color: #222;
+}
+
+/* ================= TOP BAR ================= */
+
+.top-bar{
+    background: #111;
+    color: gold;
+    padding: 10px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-brand{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.logo-brand span{
+    color: white;
+}
+
+/* ================= NAV ================= */
+
+header{
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+}
+
+nav{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a{
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+nav a:hover{
+    color: gold;
+}
+
+/* ICONS */
+
+.icons{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.search-box input{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 12px;
+}
+
+.icons i{
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* ================= TITLE ================= */
+
+.section-title{
+    text-align: center;
+    margin: 25px 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.section-title span{
+    color: gold;
+}
+
+/* ================= ABOUT SECTION ================= */
+
+.about-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px 8%;
+    background: #fff;
+}
+
+.about-text h2{
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #111;
+}
+
+.about-text p{
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.about-text ul{
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.about-text li{
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+/* ================= ABOUT IMAGES ================= */
+
+.about-images{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.img-box{
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= STATS ================= */
+
+.about-stats{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 30px 8%;
+    text-align: center;
+    background: #f7f7f7;
+}
+
+.stat-box{
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.stat-box h3{
+    font-size: 22px;
+    color: gold;
+    margin-bottom: 5px;
+}
+
+.stat-box p{
+    font-size: 13px;
+    color: #555;
+}
+
+/* ================= TEAM ================= */
+
+.team-section{
+    padding: 40px 8%;
+    background: #fff;
+    text-align: center;
+}
+
+.team-section h2{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.team-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+}
+
+.team-card{
+    background: #f9f9f9;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #eee;
+}
+
+.team-card img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 7px;
+}
+
+.team-card h3{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.team-card p{
+    font-size: 12px;
+    color: #777;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background: #111;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+footer p{
+    margin: 5px 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px){
+
+    .about-container{
+        grid-template-columns: 1fr;
+    }
+
+    nav{
+        justify-content: center;
+    }
+
+    .icons{
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+</style>
+</body>
+</html>

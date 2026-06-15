@@ -1,0 +1,1017 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gadgets - Skyline Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #0b0804;
+  --surface: #111010;
+  --surface-soft: #1d1914;
+  --text: #f8edd3;
+  --muted: #c9b57d;
+  --accent: #d4af37;
+  --accent-soft: rgba(212, 175, 55, 0.16);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.6), transparent 32%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.container {
+  width: min(1180px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+header {
+  position: sticky;
+  top: 60px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 2rem;
+  margin: 0 auto;
+  max-width: 1400px;
+  background: rgba(10, 7, 4, 0.94);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 11;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(10, 7, 4, 0.98));
+  padding: 0.75rem 2rem;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.logo-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: rgba(212, 175, 55, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-brand {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #f8edd3, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--muted);
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface-soft);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  min-width: 220px;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  color: var(--text);
+}
+
+.search-box i,
+.icons i {
+  color: var(--accent);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 3.5rem 2rem;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.4rem, 3.5vw, 3.75rem);
+  line-height: 0.98;
+  max-width: 12ch;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero-text h1 span {
+  display: block;
+  color: var(--accent);
+}
+
+.hero-text p {
+  margin: 1.5rem 0;
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.95rem 1.8rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.shop-btn {
+  background: var(--accent);
+  color: #090700;
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.24);
+}
+
+.deal-btn {
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--text);
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-placeholder {
+  width: min(420px, 100%);
+  height: 420px;
+  border-radius: 2rem;
+  background: linear-gradient(180deg, #d9deff 0%, #f6f8ff 100%);
+  box-shadow: var(--shadow);
+  display: grid;
+  place-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(17, 24, 39, 0.45);
+  text-align: center;
+  padding: 2rem;
+}
+
+.section-title {
+  margin: 2.5rem auto 1.5rem;
+  padding: 0 2rem;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  max-width: 1400px;
+}
+
+.section-title span {
+  color: var(--accent);
+}
+
+.products,
+.categories {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.products {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.card,
+.category-box,
+.discount-banner {
+  background: var(--surface);
+  border-radius: 1.75rem;
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+}
+
+.card {
+  display: grid;
+  gap: 1.1rem;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+.product-image {
+  min-height: 200px;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.14), rgba(0, 0, 0, 0.24));
+  display: grid;
+  place-items: center;
+  color: rgba(248, 237, 211, 0.85);
+  font-weight: 600;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.rating {
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.add-cart {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: var(--accent);
+  color: #090700;
+  padding: 0.85rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.add-cart:hover {
+  background: #b58d18;
+  transform: scale(1.03);
+}
+
+.categories {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.category-box {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 1.75rem 1.25rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.category-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+.category-box i {
+  font-size: 1.5rem;
+  color: var(--accent);
+  background: rgba(212, 175, 55, 0.12);
+  width: 2.8rem;
+  height: 2.8rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.category-box:hover i {
+  background: rgba(212, 175, 55, 0.25);
+  transform: scale(1.1);
+}
+
+.category-box h3 {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.discount-banner {
+  display: grid;
+  gap: 1rem;
+  background: linear-gradient(135deg, #1c150b 0%, #3b2b0a 100%);
+  color: white;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 1400px;
+  border-radius: 1.75rem;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.discount-banner h2 {
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.discount-banner p {
+  color: rgba(255, 238, 209, 0.86);
+  max-width: 40rem;
+  margin: 0 auto;
+  font-size: 0.95rem;
+}
+
+footer {
+  padding: 2.5rem 2rem 4rem;
+  margin: 0 auto;
+  max-width: 1400px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+footer p {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .search-box {
+    min-width: 170px;
+  }
+
+  .logo-brand {
+    font-size: 1.5rem;
+  }
+
+  header {
+    padding: 0.85rem 1.5rem;
+  }
+
+  .section-title {
+    padding: 0 1.5rem;
+  }
+
+  .products,
+  .categories {
+    padding: 0 1.5rem;
+  }
+
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .discount-banner {
+    padding: 2.5rem 1.5rem;
+  }
+
+  footer {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .top-bar {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .logo-image {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 720px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .hero {
+    gap: 1.5rem;
+    padding: 2.5rem 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .products,
+  .categories {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .top-bar {
+    top: 0;
+    padding: 0.65rem 1rem;
+  }
+
+  .logo-container {
+    gap: 0.75rem;
+  }
+
+  .logo-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-brand {
+    font-size: 1.35rem;
+  }
+
+  .card h3,
+  .category-box h3 {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    padding: 0 1rem;
+    margin: 2rem auto 1.5rem;
+  }
+
+  .discount-banner {
+    padding: 2rem 1rem;
+    margin: 1.5rem auto;
+  }
+
+  footer {
+    padding: 2rem 1rem 3rem;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar">
+<div class="logo-container">
+<div class="logo-image">
+<img src="images/Apple pad.webp" alt="Skyline Store Logo" class="brand-logo">
+</div>
+<div class="logo-brand">
+Skyline <span>Store</span>
+</div>
+</div>
+</div>
+
+<div class="menu-toggle">☰</div>
+
+<header>
+
+<nav>
+<a href="home.html">Home</a>
+<a href="Gadgets.html">Gadgets</a>
+<a href="Home appliances.html">Home Appliances</a>
+<a href="Body care.html">Body Care</a>
+<a href="Sneakers.html">Sneakers</a>
+<a href="Book store.html">Book Store</a>
+<a href="Cloths and trousers.html">Cloths & Trousers</a>
+<a href="Electric fan.html">Electric Fans</a>
+<a href="About.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="icons">
+
+<div class="search-box">
+<input type="text" placeholder="Search...">
+<i class="fa fa-search"></i>
+</div>
+
+<i class="fa fa-heart"></i>
+<i class="fa fa-cart-shopping"></i>
+
+</div>
+
+</header>
+
+<h2 class="section-title">
+Latest <span>Gadgets</span>
+</h2>
+
+<section class="products">
+
+<div class="card">
+<div class="product-image">
+<img src="images/download (5).jpg" alt="Smart Watch Pro">
+</div>
+<h3>Smart Watch Pro</h3>
+<div class="price">$150</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/download (6).jpg" alt="Wireless Earbuds">
+</div>
+<h3>Wireless Earbuds</h3>
+<div class="price">$85</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/download (7).jpg" alt="Gaming Controller">
+</div>
+<h3>Gaming Controller</h3>
+<div class="price">$65</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/download (12).jpg" alt="Latest Iphones">
+</div>
+<h3>Latest Iphones</h3>
+<div class="price">$1200</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/download (13).jpg" alt="Latest Laptops">
+</div>
+<h3>Latest Laptops</h3>
+<div class="price">$1000</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (47).jpg" alt="Ring light">
+</div>
+<h3> Ring light</h3>
+<div class="price">$15</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (46).jpg" alt="selfie light">
+</div>
+<h3>Selfie ligh</h3>
+<div class="price">$11</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (45).jpg" alt="Round earpods">
+</div>
+<h3>Round earpods</h3>
+<div class="price">10</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (44).jpg" alt="Mini phone light">
+</div>
+<h3>Mini Phone light</h3>
+<div class="price">$9</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (1).jpg (43).jpg" alt="Camera Stand">
+</div>
+<h3>Camera Stand</h3>
+<div class="price">$30</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (42).jpg" alt="Phone zooming camera lense">
+</div>
+<h3>Camera lense</h3>
+<div class="price">$51</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (41).jpg" alt="Samsung phone">
+</div>
+<h3>Samsung Galaxy A26 </h3>
+<div class="price">$300</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (57).jpg" alt="Mini Volg Camera">
+</div>
+<h3>Mini Volg Camera</h3>
+<div class="price">$30</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (58).jpg" alt="Smart Glasses">
+</div>
+<h3>Smart Glasses</h3>
+<div class="price">$150</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (62).jpg" alt="Smart CCTV Camera">
+</div>
+<h3>Smart CCTV Camera</h3>
+<div class="price">$200</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (61).jpg" alt="Bag Checker">
+</div>
+<h3>Bag Checker</h3>
+<div class="price">$50</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (60).jpg" alt="Smart Box Tv">
+</div>
+<h3>Smart Box Tv</h3>
+<div class="price">$35</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (63).jpg" alt="Gaming Mouse">
+</div>
+<h3>Gaming Mouse</h3>
+<div class="price">$29</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (64).jpg" alt="Fast Charging Chord">
+</div>
+<h3>Fast Charging Cord</h3>
+<div class="price">$11</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (66).jpg" alt="Store For Gadgets">
+</div>
+<h3>Store Bag for Gadgets</h3>
+<div class="price">$15</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (51).jpg" alt="Mini Phone Holder light">
+</div>
+<h3>Mini Phone Holder light</h3>
+<div class="price">$32</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (55).jpg" alt="Tiktok Ring remote Control">
+</div>
+<h3>Tiktok Ring Romote Control</h3>
+<div class="price">$50</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/166409210_MzAwLTUzMy05MzRmZmUxMGY1.webp" alt="Oraimo Power Bank">
+</div>
+<h3>Oraimo Power Bank 50 Mah</h3>
+<div class="price">$40</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/183196579_MzAwLTY1My1hZWRmZjc0Nzlm.webp" alt="Iphone 16">
+</div>
+<h3>Iphone 16</h3>
+<div class="price">$900</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/183290759_MzAwLTQwMC1mZTVjNjY4YmNk.webp" alt="Iphone 17 pro max">
+</div>
+<h3>Iphone 17 pro max</h3>
+<div class="price">$2500</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/183291127_MzAwLTQwMC1kOWUxZTkyYTY4.webp" alt="White Iphone 17 pro max">
+</div>
+<h3>White Iphone 17 pro max</h3>
+<div class="price">$2500</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/192805849_MzAwLTIyNS1kZGQzODNjNTUy.webp" alt="Orange Iphone 17 pro max">
+</div>
+<h3>Orange Iphone 17 pro max</h3>
+<div class="price">$2500</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/195324897_MzAwLTIyNS0yYTZiNTI4NzI3.webp" alt="Wired Gaming Pad">
+</div>
+<h3>Wired Gaming Pad</h3>
+<div class="price">$35</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (48).jpg" alt="Phone and head phone Adapter">
+</div>
+<h3>Phone and head phone Adapter</h3>
+<div class="price">$17</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (52).jpg" alt="Car Fast Charger">
+</div>
+<h3>Car Fast Charger</h3>
+<div class="price">$12</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/1 (54).jpg" alt="Mini Phone Ring Light">
+</div>
+<h3>Mini Phone Ring Light</h3>
+<div class="price">$15</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/Apple laptop stand.webp" alt="Apple laptop stand">
+</div>
+<h3>Apple laptop stand</h3>
+<div class="price">$50</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/Apple earpods.webp" alt="Apple earpods">
+</div>
+<h3>Apple earpods</h3>
+<div class="price">$100</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/Apple headset.webp" alt="Apple headset">
+</div>
+<h3>Apple headset</h3>
+<div class="price">$850</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/Apple laptop.webp" alt="Apple laptop">
+</div>
+<h3>Apple laptop</h3>
+<div class="price">$3000</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+<div class="card">
+<div class="product-image">
+<img src="images/Apple pad.webp" alt="Apple pad">
+</div>
+<h3>Apple pad</h3>
+<div class="price">$1500</div>
+<a href="cart.html" class="add-cart">Add To Cart</a>
+</div>
+
+
+</section>
+
+<footer>
+
+<p>
+Skyline Store brings premium products and great deals all in one place.
+</p>
+
+<p>
+© 2026 Skyline Store. Crafted for style and performance.
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+<style>
+  /* ================= TOP BAR ================= */
+
+.top-bar{
+    background: #111;
+    color: gold;
+    padding: 10px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-brand{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.logo-brand span{
+    color: white;
+}
+
+/* ================= NAV ================= */
+
+header{
+    background: #dbdbdb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+}
+
+nav{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a{
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+nav a:hover{
+    color: gold;
+}
+</style>
+</body>
+</html>
